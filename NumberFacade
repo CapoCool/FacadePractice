@@ -1,0 +1,64 @@
+//Dillan Poorman
+
+package FacadePractice;
+
+public class NumberFacade {
+	
+	private int[] numberList = new int[10];
+	
+	public void setNumbersList(int[] list) {
+		numberList = list;
+	}
+	
+	
+	/*	Add numbers, simply adds each number to a single variable
+	 * 
+	 */
+	public void addNumbers() {
+		int total = 0;
+		for(int i = 0; i < 10; i++) {
+			total += numberList[i];
+		}
+		System.out.println("********** Add all the numbers together ***********");
+		System.out.println(total);
+	}
+	
+	
+	//Adds all the numbers together and then just subtracts the result from 100
+	public void subtractNumbers() {
+		int total = 0;
+		for(int i = 0; i < 10; i++) {
+			total += numberList[i];
+		}
+		System.out.println("********** Subtract all the numbers from 100 ***********");
+		System.out.println(100 - total);
+	}
+	
+	
+	//Multiplies all the numbers in the list together with a try catch block in case all the number generated are 9, 9^10
+	// is 3.5 billion, which would generate an integer overflow exception. If an integer overflow is thrown, it just
+	// switches to a long variable.
+	public void multiplyNumbers() {
+		int total = 1;
+		try {
+			for(int i = 0; i < 10; i++) {
+				total *= numberList[i];
+			}
+			System.out.println("********** Multiply all the numbers together ***********");
+			System.out.println(total);
+		}
+		catch(ArithmeticException ex) {
+			long total2 = 1;
+			for(int i = 0; i < 10; i++) {
+				total2 *= (long) numberList[i];
+			}
+			System.out.println("********** Multiply all the numbers together ***********");
+			System.out.println(total2);
+			
+			
+		}
+		
+	}
+
+
+}
